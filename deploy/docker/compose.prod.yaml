@@ -58,7 +58,7 @@ services:
     environment:
       - DAGU_COORDINATOR_HOST=dagu-coordinator
       - DAGU_COORDINATOR_PORT=50055
-      - DAGU_SCHEDULER_PORT=8090
+      - DAGU_SCHEDULER_PORT=${DAGU_PORT}
       - DAGU_DAGS_DIR=/var/lib/dagu/dags
       # Optional: set timezone, logging, etc
       # - DAGU_TZ=UTC
@@ -97,7 +97,7 @@ services:
       - "8080:8080"
     volumes:
       - dagu-data:/var/lib/dagu
-      - ./dags:/var/lib/dagu/dags:ro
+      - ./dags:/var/lib/dagu/dags:rw
     networks: [dagu-net]
 
   # Dagu worker (polls coordinator and executes tasks)
