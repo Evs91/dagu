@@ -66,7 +66,7 @@ services:
     depends_on:
       - dagu-coordinator
     ports:
-      - "8090:8090" # Scheduler health
+      - "8088:8088" # Scheduler health
     volumes:
       - dagu-data:/var/lib/dagu
       - ./dags:/var/lib/dagu/dags:ro
