@@ -36,7 +36,7 @@ services:
 
   # Dagu control-plane: Coordinator (gRPC) for distributed workers
   dagu-coordinator:
-    image: ghcr.io/dagu-org/dagu:latest
+    build: ../../Dockerfile.alpine
     command: ["dagu", "coordinator"]
     environment:
       # Peer config: insecure by default; set TLS envs if needed
