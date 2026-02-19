@@ -85,7 +85,7 @@ services:
       # Builtin authentication (RBAC) - CHANGE TOKEN_SECRET IN PRODUCTION
       - DAGU_AUTH_MODE=builtin
       # Token secret: auto-generated if not set (persisted to {dataDir}/auth/token_secret)
-      # - DAGU_AUTH_TOKEN_SECRET=your-secure-random-secret
+      - DAGU_AUTH_TOKEN_SECRET=${DAGU_SECRET}
       # First admin account created via /setup page on first browser visit
       # - DAGU_AUTH_TOKEN_TTL=24h        # default is 24h
       # If behind a proxy, set base path
@@ -108,7 +108,7 @@ services:
       - DAGU_COORDINATOR_HOST=dagu-coordinator
       - DAGU_COORDINATOR_PORT=50055
       # Optional worker tuning and labels
-      # - DAGU_WORKER_MAX_ACTIVE_RUNS=100
+      - DAGU_WORKER_MAX_ACTIVE_RUNS=100
       # - DAGU_WORKER_LABELS=region=us-east-1,instance-type=m5.large
       # OTel: point DAGs to collector via per-DAG otel.endpoint: "otel-collector:4317"
     depends_on:
@@ -125,8 +125,8 @@ services:
     ports:
       - "3003:3000"
     environment:
-      - GF_SECURITY_ADMIN_USER=admin
-      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_SECURITY_ADMIN_USER=${GF_SECURITY_ADMIN_USERNAME}
+      - GF_SECURITY_ADMIN_PASSWORD=${GF_SECURITY_ADMIN_PASS}
     depends_on:
       - prometheus
     volumes:
