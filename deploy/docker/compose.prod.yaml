@@ -58,7 +58,7 @@ services:
     environment:
       - DAGU_COORDINATOR_HOST=dagu-coordinator
       - DAGU_COORDINATOR_PORT=50055
-      - DAGU_SCHEDULER_PORT=${DAGU_PORT}
+      - DAGU_SCHEDULER_PORT=${8088}
       - DAGU_DAGS_DIR=/var/lib/dagu/dags
       # Optional: set timezone, logging, etc
       # - DAGU_TZ=UTC
@@ -80,7 +80,7 @@ services:
       - DAGU_COORDINATOR_HOST=dagu-coordinator
       - DAGU_COORDINATOR_PORT=50055
       - DAGU_HOST=0.0.0.0
-      - DAGU_PORT=${DAGU_PORT:-9090}
+      - DAGU_PORT=${DAGU_PORT:-8088}
       - DAGU_DAGS_DIR=/var/lib/dagu/dags
       # Builtin authentication (RBAC) - CHANGE TOKEN_SECRET IN PRODUCTION
       - DAGU_AUTH_MODE=builtin
