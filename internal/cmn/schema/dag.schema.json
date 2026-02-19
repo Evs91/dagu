@@ -580,11 +580,7 @@
       "description": "Default SSH configuration for all steps in the DAG. Steps can override this configuration with their own SSH settings. Note: SSH and container configurations are mutually exclusive at the DAG level."
     },
     "s3": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/s3ConnectionConfig"
-        }
-      ],
+      "$ref": "#/definitions/s3ConnectionConfig",
       "description": "Default S3 configuration for all S3 steps in the DAG. Steps can override this configuration with their own S3 settings. Supports AWS S3 and S3-compatible services like MinIO."
     },
     "llm": {
