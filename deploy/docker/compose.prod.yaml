@@ -80,7 +80,7 @@ services:
       - DAGU_COORDINATOR_HOST=dagu-coordinator
       - DAGU_COORDINATOR_PORT=50055
       - DAGU_HOST=0.0.0.0
-      - DAGU_PORT=${DAGU_PORT:-8089}
+      - DAGU_PORT=8089
       - DAGU_DAGS_DIR=/var/lib/dagu/dags
       # Builtin authentication (RBAC) - CHANGE TOKEN_SECRET IN PRODUCTION
       - DAGU_AUTH_MODE=builtin
